@@ -40,7 +40,7 @@ public class AbsenceAdapter extends RecyclerView.Adapter<AbsenceAdapter.ViewHold
             Context context = holder.itemView.getContext();
             Intent intent = new Intent(context, AddAbsenceActivity.class);
 
-            // Passer l'identifiant de l'enseignant (CIN) à l'activité suivante
+          
             intent.putExtra("enseignantId", enseignant.getCin());
             context.startActivity(intent);
         });

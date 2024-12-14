@@ -22,15 +22,13 @@ public class ChangePasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
 
-        // Initialiser FirebaseAuth
+    
         mAuth = FirebaseAuth.getInstance();
 
-        // Initialiser les vues
         newPasswordEditText = findViewById(R.id.newPasswordEditText);
         confirmPasswordEditText = findViewById(R.id.confirmPasswordEditText);
         changePasswordButton = findViewById(R.id.changePasswordButton);
 
-        // Ajouter un écouteur sur le bouton de changement de mot de passe
         changePasswordButton.setOnClickListener(v -> {
             String newPassword = newPasswordEditText.getText().toString();
             String confirmPassword = confirmPasswordEditText.getText().toString();
@@ -45,7 +43,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         });
     }
 
-    // Méthode pour changer le mot de passe
+   
     private void changePassword(String newPassword) {
         mAuth.getCurrentUser().updatePassword(newPassword)
                 .addOnCompleteListener(task -> {

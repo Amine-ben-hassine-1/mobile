@@ -6,17 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Enseignant {
-    private String cin; // Identifiant unique de l'enseignant
-    private String name; // Nom de l'enseignant
-    private String contact; // Coordonnées de l'enseignant (email, téléphone, etc.)
-    private List<Absence> absences; // Liste des absences de l'enseignant
+    private String cin;
+    private String name;
+    private String contact; 
+    private List<Absence> absences; 
 
     // Constructeur vide requis pour Firebase
     public Enseignant() {
         this.absences = new ArrayList<>();
     }
 
-    // Constructeur avec paramètres
+ 
     public Enseignant(String cin, String name, String contact, List<Absence> absences) {
         this.cin = cin;
         this.name = name;
@@ -24,7 +24,7 @@ public class Enseignant {
         this.absences = absences != null ? absences : new ArrayList<>();
     }
 
-    // Getters et Setters
+ 
     public String getCin() {
         return cin;
     }

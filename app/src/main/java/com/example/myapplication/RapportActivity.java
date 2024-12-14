@@ -37,32 +37,31 @@ public class RapportActivity extends AppCompatActivity {
         barChart = findViewById(R.id.barChart);
         pieChart = findViewById(R.id.pieChart);
 
-        // Charger les données des absences
         loadAbsenceData();
     }
 
     private void loadAbsenceData() {
-        // Références aux collections Firestore
+  
         CollectionReference usersRef = db.collection("users");
         CollectionReference absencesRef = db.collection("absences");
 
-        // Map pour stocker les absences par enseignant, classe et salle
+    
         Map<String, Integer> teacherAbsences = new HashMap<>();
         Map<String, Integer> classAbsences = new HashMap<>();
         Map<String, Integer> roomAbsences = new HashMap<>();
 
-        // Récupérer tous les enseignants
+      
         usersRef.whereEqualTo("role", "Enseignant").get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 QuerySnapshot usersSnapshot = task.getResult();
                 if (usersSnapshot != null) {
-                    // Pour chaque enseignant, récupérer ses absences
+               
                     for (DocumentSnapshot userDoc : usersSnapshot.getDocuments()) {
                         String userCIN = userDoc.getString("cin");
                         String userName = userDoc.getString("name");
                         String userClass = userDoc.getString("class");
 
-                        // Comptabiliser les absences de l'utilisateur
+                    
                         absencesRef.whereEqualTo("cin", userCIN).get()
                                 .addOnCompleteListener(absenceTask -> {
                                     if (absenceTask.isSuccessful()) {
@@ -70,17 +69,17 @@ public class RapportActivity extends AppCompatActivity {
                                         if (absencesSnapshot != null) {
                                             int absenceCount = absencesSnapshot.size();
 
-                                            // Mise à jour des absences par enseignant, classe et salle
+                                         
                                             updateAbsenceCount(teacherAbsences, userName, absenceCount);
                                             updateAbsenceCount(classAbsences, userClass, absenceCount);
 
-                                            // Définir la salle par salle d'absence
+                          
                                             for (DocumentSnapshot absenceDoc : absencesSnapshot) {
                                                 String absenceRoom = absenceDoc.getString("salle");
                                                 updateAbsenceCount(roomAbsences, absenceRoom, 1);
                                             }
 
-                                            // Mettre à jour les graphiques
+                               
                                             updateBarChart(teacherAbsences);
                                             updatePieChart(roomAbsences);
                                         }

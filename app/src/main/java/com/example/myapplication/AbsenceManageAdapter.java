@@ -43,7 +43,7 @@ public class AbsenceManageAdapter extends RecyclerView.Adapter<AbsenceManageAdap
         holder.heureTextView.setText("Heure:         "+ absence.getHeure());
         holder.salleTextView.setText("Salle:         "+ absence.getSalle());
 
-        // Hide modify and delete buttons for teachers
+       
         if ("Enseignant".equals(userRole)) {
             holder.modifyButton.setVisibility(View.GONE);
             holder.deleteButton.setVisibility(View.GONE);
@@ -51,14 +51,12 @@ public class AbsenceManageAdapter extends RecyclerView.Adapter<AbsenceManageAdap
             holder.modifyButton.setVisibility(View.VISIBLE);
             holder.deleteButton.setVisibility(View.VISIBLE);
 
-            // Modify button click
             holder.modifyButton.setOnClickListener(v -> {
                 Intent intent = new Intent(context, ModifyAbsenceActivity.class);
                 intent.putExtra("absenceId", absence.getAbsenceId());
                 context.startActivity(intent);
             });
 
-            // Delete button click
             holder.deleteButton.setOnClickListener(v -> {
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                 db.collection("absences").document(absence.getAbsenceId())

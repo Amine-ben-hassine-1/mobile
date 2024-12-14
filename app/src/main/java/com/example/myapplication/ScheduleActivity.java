@@ -22,12 +22,12 @@ public class ScheduleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
 
-        // Initialisation des éléments
+        
         tvScheduleData = findViewById(R.id.tvScheduleData);
         firestore = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
 
-        // Récupérer l'utilisateur actuel
+   
         FirebaseUser currentUser = auth.getCurrentUser();
         if (currentUser != null) {
             String userId = currentUser.getUid(); // Récupérer l'ID de l'utilisateur
@@ -37,7 +37,7 @@ public class ScheduleActivity extends AppCompatActivity {
                     if (document.exists()) {
                         String role = document.getString("role");
                         String cin = document.getString("cin");
-                        // Appeler la méthode pour afficher les emplois du temps en fonction du rôle
+                      
                         fetchSchedules(role, cin);
                     }
                 }
@@ -45,28 +45,28 @@ public class ScheduleActivity extends AppCompatActivity {
         }
     }
 
-    // Méthode pour récupérer les emplois du temps selon le rôle de l'utilisateur
+ 
     private void fetchSchedules(String role, String cin) {
         if ("Agent de suivi".equals(role)) {
-            // Récupérer tous les emplois du temps pour l'Agent de suivi
+      
             firestore.collection("timetables").get().addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     StringBuilder data = new StringBuilder();
-                    int emploiIndex = 1; // Index pour afficher "Emploi 1", "Emploi 2", etc.
+                    int emploiIndex = 1; 
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         String classData = document.getString("class");
                         String date = document.getString("date");
                         String room = document.getString("salle");
                         String teacherId = document.getString("teacherId");
 
-                        // Formater l'affichage avec l'index
+                        
                         data.append("Emploi ").append(emploiIndex).append(":\n")
                                 .append("Class: ").append(classData).append("\n")
                                 .append("Date: ").append(date).append("\n")
                                 .append("Salle: ").append(room).append("\n")
                                 .append("TeacherId: ").append(teacherId).append("\n\n");
 
-                        emploiIndex++; // Incrémenter l'index pour le prochain emploi
+                        emploiIndex++; 
                     }
                     tvScheduleData.setText(data.toString());
                 } else {
@@ -75,34 +75,34 @@ public class ScheduleActivity extends AppCompatActivity {
                 }
             });
         } else if ("Enseignant".equals(role)) {
-            // Récupérer l'emploi du temps de l'enseignant en fonction du cin
+           
             fetchSchedulesForTeacher(cin);
         }
     }
 
-    // Méthode pour récupérer les emplois du temps pour un enseignant spécifique
+  
     private void fetchSchedulesForTeacher(String cin) {
         firestore.collection("timetables")
-                .whereEqualTo("teacherId", cin) // Filtrer par teacherId
+                .whereEqualTo("teacherId", cin) 
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         StringBuilder data = new StringBuilder();
-                        int emploiIndex = 1; // Index pour afficher "Emploi 1", "Emploi 2", etc.
+                        int emploiIndex = 1;
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             String classData = document.getString("class");
                             String date = document.getString("date");
                             String room = document.getString("salle");
                             String teacherId = document.getString("teacherId");
 
-                            // Formater l'affichage avec l'index
+                      
                             data.append("Emploi ").append(emploiIndex).append(":\n")
                                     .append("Class: ").append(classData).append("\n")
                                     .append("Date: ").append(date).append("\n")
                                     .append("Salle: ").append(room).append("\n")
                                     .append("TeacherId: ").append(teacherId).append("\n\n");
 
-                            emploiIndex++; // Incrémenter l'index pour le prochain emploi
+                            emploiIndex++; 
                         }
                         tvScheduleData.setText(data.toString());
                     } else {

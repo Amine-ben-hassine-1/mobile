@@ -37,11 +37,11 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        // Initialize Firebase Auth and Firestore
+
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        // Initialize UI elements
+ 
         nameEditText = findViewById(R.id.name);
         contactEditText = findViewById(R.id.contact);
         cinEditText = findViewById(R.id.cin);
@@ -52,7 +52,7 @@ public class Register extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         loginNowTextView = findViewById(R.id.loginNow);
 
-        // Set up Spinner with user roles
+
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.user_roles, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -70,7 +70,7 @@ public class Register extends AppCompatActivity {
         String password = passwordEditText.getText().toString().trim();
         String role = roleSpinner.getSelectedItem().toString();
 
-        // Basic validation
+ 
         if (name.isEmpty() || contact.isEmpty() || cin.isEmpty() || email.isEmpty() || password.isEmpty()) {
             Toast.makeText(Register.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
             return;
@@ -81,23 +81,22 @@ public class Register extends AppCompatActivity {
             return;
         }
 
-        // Show progress bar
+    
         progressBar.setVisibility(View.VISIBLE);
 
-        // Register user with Firebase Authentication
+    
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         String userId = mAuth.getCurrentUser().getUid();
 
-                        // Prepare user data to save in Firestore
+                   
                         Map<String, Object> user = new HashMap<>();
                         user.put("name", name);
                         user.put("contact", contact);
                         user.put("cin", cin);
-                        user.put("role", role);  // Role is saved in Firestore
-
-                        // Save data in Firestore
+                        user.put("role", role); 
+                       
                         db.collection("users").document(userId)
                                 .set(user)
                                 .addOnSuccessListener(aVoid -> {

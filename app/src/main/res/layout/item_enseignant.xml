@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/addAbsenceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+" />
+
+    <!-- Bouton plus petit pour consulter les absences -->
+    <Button
+        android:id="@+id/viewAbsencesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Consulter absences"
+        android:textSize="12sp"
+    android:minWidth="0dp"
+    android:layout_marginStart="8dp"
+    android:padding="4dp"
+    android:layout_alignParentEnd="true" />
+
+</LinearLayout>

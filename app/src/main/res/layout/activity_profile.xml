@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Nom de l'utilisateur -->
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nom:"
+        android:textSize="18sp" />
+
+    <!-- Email de l'utilisateur -->
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:textSize="18sp" />
+
+    <!-- Rôle de l'utilisateur -->
+    <TextView
+        android:id="@+id/tv_role"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rôle:"
+        android:textSize="18sp" />
+
+    <!-- CIN de l'utilisateur -->
+    <TextView
+        android:id="@+id/tv_cin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CIN:"
+        android:textSize="18sp" />
+
+    <!-- Contact de l'utilisateur -->
+    <TextView
+        android:id="@+id/tv_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact:"
+        android:textSize="18sp" />
+
+    <!-- Bouton pour changer le mot de passe -->
+    <Button
+        android:id="@+id/btn_change_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Changer le mot de passe" />
+</LinearLayout>

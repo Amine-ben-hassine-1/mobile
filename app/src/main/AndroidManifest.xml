@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.myapplication">
+    <!-- Permissions for Internet and Network State -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.MyApplication"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".ScheduleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AddUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RapportActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EditUserActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ManageUsersActivity"
+            android:exported="true" />
+        <activity
+            android:name=".TimetableActivity"
+            android:exported="true" /> <!-- MainActivity - Launcher Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Login Activity - Added as fallback in case user is not logged in -->
+        <activity
+            android:name=".Login"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Dashboard Activity -->
+        <!-- Profile Activity -->
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="true" /> <!-- Manage Absence Activity -->
+        <activity
+            android:name=".ManageAbsenceActivity"
+            android:exported="true" /> <!-- Register Activity -->
+        <activity
+            android:name=".Register"
+            android:exported="true" /> <!-- Add Absence Activity -->
+        <activity
+            android:name=".AddAbsenceActivity"
+            android:exported="true" /> <!-- Modify Absence Activity -->
+        <activity
+            android:name=".ModifyAbsenceActivity"
+            android:exported="true" /> <!-- Change Password Activity -->
+        <activity
+            android:name=".ChangePasswordActivity"
+            android:exported="true" />
+    </application>
+
+</manifest>

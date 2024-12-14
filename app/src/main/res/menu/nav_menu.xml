@@ -1,0 +1,36 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Common Menu Items -->
+    <item
+        android:id="@+id/nav_home"
+        android:title="Accueil" />
+
+    <item
+        android:id="@+id/nav_profile"
+        android:title="Profil" />
+
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Déconnexion" />
+
+    <!-- Role-Based Items -->
+    <item
+        android:id="@+id/nav_view_absences"
+        android:title="Voir Absences" />
+
+    <item
+        android:id="@+id/nav_schedule"
+        android:title="Emploi de temps" />
+
+    <!-- Admin-Only Item -->
+    <item
+        android:id="@+id/nav_manage_users"
+        android:title="Gérer Utilisateurs"
+        android:visible="false" />
+
+    <!-- Admin-Only Item -->
+    <item
+        android:id="@+id/nav_reports"
+        android:title="Rapports"
+        android:visible="false" />
+</menu>

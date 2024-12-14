@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TimetableActivity">
+
+    <!-- File Name TextView -->
+    <TextView
+        android:id="@+id/tvFileName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Fichier sélectionné :"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="16dp" />
+
+    <!-- Extracted Text TextView -->
+    <TextView
+        android:id="@+id/tvExtractedText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Texte extrait"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFileName"
+        android:padding="16dp"
+        android:scrollbars="vertical" />
+
+    <!-- Firestore Data TextView -->
+    <TextView
+        android:id="@+id/tvFirestoreData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Données Firestore"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvExtractedText"
+        android:padding="16dp"
+        android:scrollbars="vertical" />
+
+    <!-- Select PDF Button -->
+    <Button
+        android:id="@+id/btnSelectPdf"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Sélectionner un fichier PDF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvFirestoreData"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/white"/>
+    <!-- Select Excel Button -->
+    <Button
+        android:id="@+id/btnSelectExcel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Sélectionner un fichier Excel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSelectPdf"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/white" /> <!-- Couleur de fond plus foncée -->
+
+    <!-- Extract Text Button -->
+    <Button
+        android:id="@+id/btnExtractText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Extraire le texte"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSelectExcel"
+        android:layout_marginTop="16dp"
+        android:enabled="false"
+        android:textColor="@android:color/white" /> <!-- Couleur de fond plus foncée -->
+
+    <!-- Save Data to Firestore Button -->
+    <Button
+        android:id="@+id/btnSavePdfData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Sauvegarder dans Firestore"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnExtractText"
+        android:layout_marginTop="16dp"
+        android:enabled="false"
+        android:textColor="@android:color/white"  /> <!-- Couleur de fond plus foncée -->
+
+    <!-- Fetch Timetables Button -->
+    <Button
+        android:id="@+id/btnFetchTimetables"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Récupérer les emplois du temps"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSavePdfData"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/white" /> <!-- Couleur de fond plus foncée -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

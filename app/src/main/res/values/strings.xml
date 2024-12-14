@@ -1,0 +1,61 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- App Name -->
+    <string name="app_name">My Application</string>
+
+    <!-- Register Screen -->
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="click_to_login">Click to login</string>
+    <string name="login">Login</string>
+    <string name="click_to_register">Click to register</string>
+    <string name="logout">Logout</string>
+
+    <!-- Navigation and Text -->
+    <string name="text_to_navigate_to_login_screen">Text to navigate to login screen</string>
+    <string name="contact">Contact</string>
+    <string name="name">Name</string>
+
+    <!-- Login Reminder -->
+    <string name="already_have_an_account_log_in_here">Already have an account? Log in here.</string>
+    <string name="teacher_name">Teacher Name</string>
+    <string name="ajouter_une_absence">Ajouter une absence</string>
+    <string name="nom_de_l_enseignant">Nom de l\'enseignant</string>
+    <string name="absences">Absences</string>
+    <string name="cin">CIN</string>
+    <string name="id_agent">ID Agent</string>
+    <string name="classe">Classe</string>
+    <string name="date">Date</string>
+    <string name="salle">Salle</string>
+    <string name="ajouter">Ajouter</string>
+    <string name="consulter_absences">Consulter Absences</string>
+    <string name="cin_enseignant"> CIN</string>
+    <string name="liste_des_absences">Liste des Absences</string>
+    <string name="agent_id">Agent ID</string>
+    <string name="heure">Heure</string>
+    <string name="modifier">Modifier</string>
+    <string name="supprimer">Supprimer</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="sauvegarder">Sauvegarder</string>
+    <string name="annuler">Annuler</string>
+
+
+    <!-- User Roles for Spinner -->
+    <string-array name="user_roles">
+        <item>Administrateur</item>
+        <item>Agent de suivi</item>
+        <item>Enseignant</item>
+    </string-array>
+
+
+    <string name="navigation_drawer_open">Ouvrir le menu</string>
+    <string name="navigation_drawer_close">Fermer le menu</string>
+    <string name="contenu_principal">Contenu principal</string>
+    <string name="liste_des_enseignants">Liste des Enseignants</string>
+    <string name="d_connexion">Déconnexion</string>
+    <string name="consulter_les_absences">Consulter les absences</string>
+    <string name="profil">Profil</string>
+    <string name="accueil">Accueil</string>
+
+
+</resources>

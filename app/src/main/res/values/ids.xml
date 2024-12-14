@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Existing IDs -->
+    <item name="absenceIdTextView" type="id" />
+    <item name="absenceDateTextView" type="id" />
+    <item name="absenceHeureTextView" type="id" />
+    <item name="absenceSalleTextView" type="id" />
+    <item name="absenceClasseTextView" type="id" />
+    <item name="modifyButton" type="id" />
+    <item name="deleteButton" type="id" />
+    <item name="nav_manage_absences" type="id" />
+    <item name="textView" type="id" />
+    <item name="button" type="id" />
+    <item name="nav_header_name" type="id" />
+    <item name="nav_header_email" type="id" />
+
+    <!-- New IDs added -->
+    <item name="nav_home" type="id" />          <!-- ID for Home -->
+    <item name="nav_profile" type="id" />       <!-- ID for Profile -->
+    <item name="nav_logout" type="id" />        <!-- ID for Logout -->
+    <item name="nav_view_absences" type="id" />
+    <item name="editRoleSpinner" type="id" />   <!-- Correct ID for Edit Role Spinner -->
+    <item name="editEmail" type="id" />
+    <item name="tvFileName" type="id" />
+    <item name="btnUploadImage" type="id" />
+    <item name="btnSelectImage" type="id" />
+    <item name="imageView" type="id" />
+    <item name="textViewName" type="id" />
+    <item name="textViewEmail" type="id" />
+    <item name="textViewRole" type="id" />
+    <item name="buttonDelete" type="id" />
+    <item name="btnSelectExcel" type="id" />         <!-- Correct ID for Edit Email -->
+</resources>

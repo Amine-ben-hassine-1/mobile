@@ -1,0 +1,89 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Champ ID agent -->
+    <EditText
+        android:id="@+id/edtAgentId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="ID Agent"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Champ Classe -->
+    <EditText
+        android:id="@+id/edtClasse"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Classe"
+        app:layout_constraintTop_toBottomOf="@id/edtAgentId"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:padding="15dp" />
+
+    <!-- Champ Date -->
+    <EditText
+        android:id="@+id/edtDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Date"
+        app:layout_constraintTop_toBottomOf="@id/edtClasse"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:padding="15dp" />
+
+    <!-- Champ Salle -->
+    <EditText
+        android:id="@+id/edtSalle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Salle"
+        app:layout_constraintTop_toBottomOf="@id/edtDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:padding="15dp" />
+
+    <!-- Champ Heure -->
+    <EditText
+        android:id="@+id/edtHeure"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Heure"
+        app:layout_constraintTop_toBottomOf="@id/edtSalle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:padding="15dp" />
+
+    <!-- Bouton Ajouter -->
+    <Button
+        android:id="@+id/btnAddAbsence"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Ajouter"
+        app:layout_constraintTop_toBottomOf="@id/edtHeure"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <!-- ProgressBar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/btnAddAbsence"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

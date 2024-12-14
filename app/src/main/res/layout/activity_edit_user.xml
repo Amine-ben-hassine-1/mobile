@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:spacing="8dp">
+
+    <!-- EditText for Name -->
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:padding="16dp"
+        android:minHeight="48dp"
+        android:importantForAccessibility="yes" />
+
+    <!-- EditText for Contact -->
+    <EditText
+        android:id="@+id/editContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contact"
+        android:padding="16dp"
+        android:minHeight="48dp"
+        android:importantForAccessibility="yes" />
+
+
+    <!-- Spinner for Role -->
+    <Spinner
+        android:id="@+id/editRoleSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:minHeight="48dp"
+        android:importantForAccessibility="yes"
+        android:contentDescription="Select role" />
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enregistrer"
+        android:padding="12dp"
+        android:minHeight="48dp"
+        android:importantForAccessibility="yes"
+        android:contentDescription="Save changes" />
+
+    <!-- Cancel Button -->
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Annuler"
+        android:padding="12dp"
+        android:minHeight="48dp"
+        android:importantForAccessibility="yes"
+        android:contentDescription="Cancel changes" />
+
+</LinearLayout>

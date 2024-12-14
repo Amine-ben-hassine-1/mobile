@@ -1,0 +1,6 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_profile" android:title="Profil" />
+    <item android:id="@+id/nav_view_absences" android:title="Voir Absences" />
+    <item android:id="@+id/nav_logout" android:title="Déconnexion" />
+    <item android:id="@+id/nav_schedule" android:title="Emploi du temps" />
+</menu>

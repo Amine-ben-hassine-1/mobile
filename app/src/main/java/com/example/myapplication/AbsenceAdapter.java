@@ -45,7 +45,7 @@ public class AbsenceAdapter extends RecyclerView.Adapter<AbsenceAdapter.ViewHold
             context.startActivity(intent);
         });
 
-        // Gestion du clic sur le bouton pour consulter les absences
+  
         holder.viewAbsencesButton.setOnClickListener(v -> {
             Context context = holder.itemView.getContext();
             Intent intent = new Intent(context, ManageAbsenceActivity.class);

@@ -36,7 +36,7 @@ public class TimetableActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timetable);
 
-        // Initialisation des composants
+      
         tvFileName = findViewById(R.id.tvFileName);
         tvExtractedText = findViewById(R.id.tvExtractedText);
         tvFirestoreData = findViewById(R.id.tvFirestoreData);
@@ -48,7 +48,7 @@ public class TimetableActivity extends AppCompatActivity {
 
         firestore = FirebaseFirestore.getInstance();
 
-        // Sélection du fichier
+      
         selectFileLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
@@ -61,7 +61,7 @@ public class TimetableActivity extends AppCompatActivity {
                     }
                 });
 
-        // Boutons
+
         btnSelectPdf.setOnClickListener(v -> selectFile("application/pdf"));
         btnSelectExcel.setOnClickListener(v -> selectFile("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"));
         btnExtractText.setOnClickListener(v -> extractTextFromFile());
@@ -128,14 +128,14 @@ public class TimetableActivity extends AppCompatActivity {
     }
 
     private void parseAndFillFields(String text) {
-        // Exemple de regex pour les champs (professeur, date, salle)
+       
         Map<String, String> fields = new HashMap<>();
         fields.put("teacherId", extractField(text, "\"teacherId\":\\s*(\\d+)"));
         fields.put("date", extractField(text, "\"date\":\\s*\"(\\d{2}/\\d{2}/\\d{4})"));
         fields.put("class", extractField(text, "\"class\":\\s*([\\d,\\s]+)"));
         fields.put("salle", extractField(text, "\"salle\":\\s*([\\d,\\s]+)"));
 
-        // Affichage des résultats dans le TextView
+   
         String result = "Professeur : " + fields.get("teacherId") + "\nDate : " + fields.get("date") + "\nClass : " + fields.get("class") + "\nSalle : " + fields.get("salle");
         tvExtractedText.setText(result);
     }
@@ -150,10 +150,10 @@ public class TimetableActivity extends AppCompatActivity {
         if (!extractedText.isEmpty()) {
             String teacherId = extractField(extractedText, "Professeur : (\\d+)");
             String date = extractField(extractedText, "Date : (\\d{2}/\\d{2}/\\d{4})");
-            String classroom = extractField(extractedText, "Class : ([\\d,\\s]+)"); // Corrigé pour extraire la classe correctement
+            String classroom = extractField(extractedText, "Class : ([\\d,\\s]+)"); 
             String salle = extractField(extractedText, "Salle : ([\\d,\\s]+)");
 
-            // Créer un document à envoyer à Firestore
+
             Map<String, Object> timetable = new HashMap<>();
             timetable.put("teacherId", teacherId);
             timetable.put("date", date);
@@ -179,13 +179,12 @@ public class TimetableActivity extends AppCompatActivity {
             if (task.isSuccessful()) {
                 StringBuilder data = new StringBuilder();
                 for (QueryDocumentSnapshot document : task.getResult()) {
-                    // Correct the field names to match your Firestore structure
+                   
                     String teacherId = document.getString("teacherId");
                     String date = document.getString("date");
                     String classroom = document.getString("class");
                     String salle = document.getString("salle");
 
-                    // Format and display the result correctly
                     data.append("Professeur: ").append(teacherId)
                             .append("\nDate: ").append(date)
                             .append("\nClasse: ").append(classroom)

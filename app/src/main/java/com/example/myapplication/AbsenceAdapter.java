@@ -33,10 +33,9 @@ public class AbsenceAdapter extends RecyclerView.Adapter<AbsenceAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Enseignant enseignant = enseignantsList.get(position);
 
-        // Remplir les informations de l'enseignant
         holder.nameTextView.setText(enseignant.getName());
 
-        // Gestion du clic sur le bouton pour ajouter une absence
+        
         holder.addAbsenceButton.setOnClickListener(v -> {
             Context context = holder.itemView.getContext();
             Intent intent = new Intent(context, AddAbsenceActivity.class);
@@ -51,7 +50,7 @@ public class AbsenceAdapter extends RecyclerView.Adapter<AbsenceAdapter.ViewHold
             Context context = holder.itemView.getContext();
             Intent intent = new Intent(context, ManageAbsenceActivity.class);
 
-            // Passer le CIN de l'enseignant sélectionné
+        
             String enseignantCin = enseignant.getCin();
             intent.putExtra("enseignantCin", enseignantCin);
 

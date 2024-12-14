@@ -25,11 +25,11 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        // Initialiser FirebaseAuth et Firestore
+    
         firebaseAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
 
-        // Initialiser les composants UI
+   I
         tvName = findViewById(R.id.tv_name);
         tvEmail = findViewById(R.id.tv_email);
         tvRole = findViewById(R.id.tv_role);
@@ -37,10 +37,10 @@ public class ProfileActivity extends AppCompatActivity {
         tvContact = findViewById(R.id.tv_contact);
         btnChangePassword = findViewById(R.id.btn_change_password);
 
-        // Charger les informations de l'utilisateur connecté
+    
         loadUserProfile();
 
-        // Bouton de modification du mot de passe
+      
         btnChangePassword.setOnClickListener(v -> {
             // Ouvrir l'écran pour modifier le mot de passe
             Intent intent = new Intent(ProfileActivity.this, ChangePasswordActivity.class);
@@ -48,26 +48,24 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-    /**
-     * Fonction pour charger les informations de l'utilisateur connecté depuis Firestore
-     */
+
     private void loadUserProfile() {
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
         if (currentUser != null) {
-            // Récupérer l'email de Firebase Authentication
+            
             String email = currentUser.getEmail();
 
-            // Récupérer les informations de l'utilisateur à partir de Firestore
+         
             DocumentReference userRef = firestore.collection("users").document(currentUser.getUid());
             userRef.get().addOnSuccessListener(documentSnapshot -> {
                 if (documentSnapshot.exists()) {
-                    // Récupérer les informations de l'utilisateur depuis Firestore
+                   
                     String name = documentSnapshot.getString("name");
                     String role = documentSnapshot.getString("role");
                     String cin = documentSnapshot.getString("cin");
                     String contact = documentSnapshot.getString("contact");
 
-                    // Afficher les informations dans les TextViews
+                  
                     tvName.setText("Nom: " + (name != null ? name : "Non spécifié"));
                     tvEmail.setText("Email: " + (email != null ? email : "Non spécifié"));
                     tvRole.setText("Rôle: " + (role != null ? role : "Non spécifié"));

@@ -29,7 +29,7 @@ public class AddAbsenceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_absence);
 
-        // Initialisation des vues
+       
         edtAgentId = findViewById(R.id.edtAgentId);
         edtClasse = findViewById(R.id.edtClasse);
         edtDate = findViewById(R.id.edtDate);
@@ -38,10 +38,10 @@ public class AddAbsenceActivity extends AppCompatActivity {
         btnAddAbsence = findViewById(R.id.btnAddAbsence);
         progressBar = findViewById(R.id.progressBar);
 
-        // Initialisation de Firestore
+       
         db = FirebaseFirestore.getInstance();
 
-        // Récupérer le CIN de l'enseignant passé dans l'Intent
+  
         enseignantCin = getIntent().getStringExtra("enseignantId");
 
         // Vérifier si le CIN est passé correctement
@@ -50,7 +50,7 @@ public class AddAbsenceActivity extends AppCompatActivity {
             finish();  // Quitter l'activité si CIN manquant
         }
 
-        // Bouton pour ajouter une absence
+      
         btnAddAbsence.setOnClickListener(v -> addAbsence());
     }
 
@@ -87,7 +87,7 @@ public class AddAbsenceActivity extends AppCompatActivity {
                                 Toast.makeText(AddAbsenceActivity.this, "Absence ajoutée avec succès.", Toast.LENGTH_SHORT).show();
                                 clearFields();
 
-                                // Redirection vers MainActivity après l'ajout de l'absence
+                          
                                 Intent intent = new Intent(AddAbsenceActivity.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // Optionnel : Fermer AddAbsenceActivity
                                 startActivity(intent);

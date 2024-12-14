@@ -30,10 +30,9 @@ public class AddUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_user);
 
-        // Initialize Firestore
         db = FirebaseFirestore.getInstance();
 
-        // Initialize UI elements
+    
         nameEditText = findViewById(R.id.name);
         contactEditText = findViewById(R.id.contact);
         cinEditText = findViewById(R.id.cin);
@@ -43,7 +42,7 @@ public class AddUserActivity extends AppCompatActivity {
         addUserButton = findViewById(R.id.btn_add_user);
         progressBar = findViewById(R.id.progressBar);
 
-        // Set up Spinner with user roles
+       
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.user_roles, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -60,7 +59,7 @@ public class AddUserActivity extends AppCompatActivity {
         String password = passwordEditText.getText().toString().trim();
         String role = roleSpinner.getSelectedItem().toString();
 
-        // Basic validation
+   
         if (name.isEmpty() || contact.isEmpty() || cin.isEmpty() || email.isEmpty() || password.isEmpty()) {
             Toast.makeText(AddUserActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
             return;
@@ -71,19 +70,19 @@ public class AddUserActivity extends AppCompatActivity {
             return;
         }
 
-        // Show progress bar
+   
         progressBar.setVisibility(View.VISIBLE);
 
-        // Prepare user data to save in Firestore
+  
         Map<String, Object> user = new HashMap<>();
         user.put("name", name);
         user.put("contact", contact);
         user.put("cin", cin);
-        user.put("email", email); // Add email to Firestore
-        user.put("password", password); // Add password to Firestore
-        user.put("role", role);  // Role is saved in Firestore
+        user.put("email", email);
+        user.put("password", password); 
+        user.put("role", role); 
 
-        // Save data in Firestore
+       
         db.collection("users").add(user)
                 .addOnSuccessListener(documentReference -> {
                     progressBar.setVisibility(View.GONE);

@@ -27,22 +27,22 @@ public class ManageAbsenceActivity extends AppCompatActivity {
     private AbsenceManageAdapter adapter;
     private List<Absence> absenceList;
     private FirebaseFirestore db;
-    private TextView tvEmail;  // Add TextView for email display in the header
+    private TextView tvEmail;  
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.manage_absences_activity); // Layout with DrawerLayout
+        setContentView(R.layout.manage_absences_activity); 
 
-        // Initializing DrawerLayout and NavigationView
+     
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view_absences);
 
-        // Retrieve and display the user's email in the navigation header
+   
         tvEmail = navigationView.getHeaderView(0).findViewById(R.id.tv_email);
         loadUserEmail();  // Load the email
 
-        // Check if the user is authenticated
+     
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             Intent intent = new Intent(ManageAbsenceActivity.this, Login.class);
             startActivity(intent);
@@ -50,32 +50,32 @@ public class ManageAbsenceActivity extends AppCompatActivity {
             return;
         }
 
-        // Initialize RecyclerView for displaying absences
+    
         recyclerView = findViewById(R.id.absencesRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         db = FirebaseFirestore.getInstance();
         absenceList = new ArrayList<>();
 
-        // Get the CIN from the intent
+       
         String enseignantCin = getIntent().getStringExtra("enseignantCin");
 
-        // Check if CIN is passed (for agent) and load absences accordingly
+   
         if (enseignantCin != null) {
             loadAbsencesForSpecificTeacher(enseignantCin);
         } else {
-            // If CIN is not passed, load all absences for admin or agent
+       
             fetchUserRoleAndCin();
         }
 
-        // Set navigation item selected listener
+
         navigationView.setNavigationItemSelectedListener(item -> {
             handleMenuClick(item);
             return true;
         });
     }
 
-    // Load the user's email
+
     private void loadUserEmail() {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
@@ -117,7 +117,7 @@ public class ManageAbsenceActivity extends AppCompatActivity {
                             loadAllAbsencesForAdminOrAgent(userRole);
                         }
 
-                        updateNavigationMenu(userRole);  // Update the menu based on role
+                        updateNavigationMenu(userRole);  
                     } else {
                         Toast.makeText(this, "Utilisateur non trouvé", Toast.LENGTH_SHORT).show();
                     }
@@ -165,28 +165,28 @@ public class ManageAbsenceActivity extends AppCompatActivity {
             FirebaseAuth.getInstance().signOut();
             Toast.makeText(this, "Déconnexion", Toast.LENGTH_SHORT).show();
 
-            // Open login activity
+         
             Intent loginIntent = new Intent(this, Login.class);
             loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(loginIntent);
-            finish();  // Close the current activity
+            finish(); 
         } else if (item.getItemId() == R.id.nav_manage_users) {
             startActivity(new Intent(this, ManageUsersActivity.class));
         } else if (item.getItemId() == R.id.nav_reports) {
             startActivity(new Intent(this, RapportActivity.class));
         } else if (item.getItemId() == R.id.nav_schedule) {
-            // Redirect based on user role
+          
             FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
             if (firebaseAuth.getCurrentUser() != null) {
                 db.collection("users").document(firebaseAuth.getCurrentUser().getUid()).get()
                         .addOnSuccessListener(documentSnapshot -> {
                             if (documentSnapshot.exists()) {
                                 String role = documentSnapshot.getString("role");
-                                // Redirect Enseignant and Agent de suivi to ScheduleActivity
+                               
                                 if ("Enseignant".equals(role) || "Agent de suivi".equals(role)) {
                                     startActivity(new Intent(this, ScheduleActivity.class));
                                 }
-                                // Redirect Administrateur to TimetableActivity
+                         
                                 else if ("Administrateur".equals(role)) {
                                     startActivity(new Intent(this, TimetableActivity.class));
                                 } else {
@@ -201,7 +201,7 @@ public class ManageAbsenceActivity extends AppCompatActivity {
         drawerLayout.closeDrawer(androidx.core.view.GravityCompat.START);
     }
 
-    // Update the navigation menu based on the role
+  
     private void updateNavigationMenu(String role) {
         NavigationView navigationView = findViewById(R.id.nav_view_absences);
 

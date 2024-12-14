@@ -9,10 +9,9 @@ public class Absence {
     private String heure;
     private String salle;
 
-    // Constructeur vide pour Firestore
+   
     public Absence() {}
 
-    // Constructeur avec les paramètres
     public Absence(String absenceId, String agentId, String cin, String classe, String date, String heure, String salle) {
         this.absenceId = absenceId;
         this.agentId = agentId;

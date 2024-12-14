@@ -49,7 +49,7 @@ public class ManageUsersActivity extends AppCompatActivity {
                     userList.clear();
                     for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                         User user = document.toObject(User.class);
-                        user.setUserId(document.getId()); // Ajoute l'ID Firestore comme userId
+                        user.setUserId(document.getId()); 
                         userList.add(user);
                     }
                     userAdapter = new UserAdapter(userList, new UserAdapter.OnUserClickListener() {
